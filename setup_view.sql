@@ -26,7 +26,9 @@ FROM
     characters c
     INNER JOIN people p ON c.person_id = p.person_id
     INNER JOIN species s ON c.species_id = s.species_id
-    INNER JOIN affiliations a ON c.affiliation_id = a.affiliation_id;
+    INNER JOIN affiliations a ON c.affiliation_id = a.affiliation_id
+ORDER BY 
+    c.character_id;
 
 -- Test the view
 SELECT * FROM character_overview;

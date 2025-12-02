@@ -340,7 +340,7 @@ def get_detailed_characters(db: Session = Depends(get_db)):
 def get_character_overview_view(db: Session = Depends(get_db)):
     """VIEW ACCESS - character_overview (run setup_view.sql first)"""
     try:
-        result = db.execute(text("SELECT * FROM character_overview"))
+        result = db.execute(text("SELECT * FROM character_overview ORDER BY character_id"))
         columns = result.keys()
         rows = result.fetchall()
         return [{col: val for col, val in zip(columns, row)} for row in rows]

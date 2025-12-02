@@ -32,7 +32,9 @@ BEGIN
         INNER JOIN species s ON c.species_id = s.species_id
         INNER JOIN affiliations a ON c.affiliation_id = a.affiliation_id
     WHERE 
-        a.name = aff_name;
+        a.name = aff_name
+    ORDER BY 
+        c.character_id;
 END //
 
 DELIMITER ;
