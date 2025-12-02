@@ -46,7 +46,10 @@ class Film(Base):
 
     franchise = relationship("Franchise", back_populates="films")
 
-    __table_args__ = (Index("idx_films_franchise", "franchise_id"),)
+    __table_args__ = (
+        Index("idx_films_franchise", "franchise_id"),
+        CheckConstraint('box_office >= 0', name='check_box_office_positive')
+    )
 
 # ----------------------------------------------------------
 # TV SERIES
